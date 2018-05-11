@@ -1,6 +1,8 @@
-hash: 1356addd9abb04224a2a3852702ae661383f8876ec91d3d91bba07f3a2874824
-updated: 2018-05-10T15:34:10.418031633+05:00
+hash: 60ad2d2445ee2b266e45b2672000c6a69a807ccf9629c5c1aec0a345ed894d93
+updated: 2018-05-11T11:21:41.802152653+05:00
 imports:
+- name: github.com/asiyani/slack
+  version: 150279a4ad4b11910003e30be7ffe7fdb5523634
 - name: github.com/davecgh/go-spew
   version: 782f4967f2dc4564575ca782fe2d04090b5faca8
   subpackages:
@@ -46,14 +48,12 @@ imports:
   - OpenAPIv2
   - compiler
   - extensions
+- name: github.com/gorilla/websocket
+  version: 21ab95fa12b9bdd8fecf5fa3586aad941cc98785
 - name: github.com/gregjones/httpcache
   version: 787624de3eb7bd915c329cba748687a3b22666a6
   subpackages:
   - diskcache
-- name: github.com/hashicorp/golang-lru
-  version: a0d98a5f288019575c6d1f4bb1573fef2d1fcdc4
-  subpackages:
-  - simplelru
 - name: github.com/howeyc/gopass
   version: bf9dde6d0d2c004a008c27aaee91170c786f6db8
 - name: github.com/imdario/mergo
@@ -70,6 +70,8 @@ imports:
   - buffer
   - jlexer
   - jwriter
+- name: github.com/mitchellh/mapstructure
+  version: 00c29f56e2386353d58c599509e8dc3801b0d716
 - name: github.com/peterbourgon/diskv
   version: 5f041e8faa004a95c88a202771f4cc3e991971e6
 - name: github.com/PuerkitoBio/purell
@@ -87,11 +89,13 @@ imports:
 - name: golang.org/x/net
   version: 1c05540f6879653db88113bc4a2b70aec4bd491f
   subpackages:
-  - context
+  - html
+  - html/atom
   - http2
   - http2/hpack
   - idna
   - lex/httplex
+  - websocket
 - name: golang.org/x/sys
   version: 7ddbeae9ae08c6a06a59597f0c9edbc5ff2444ce
   subpackages:
@@ -149,7 +153,6 @@ imports:
   - pkg/api/errors
   - pkg/api/meta
   - pkg/api/resource
-  - pkg/apis/meta/internalversion
   - pkg/apis/meta/v1
   - pkg/apis/meta/v1/unstructured
   - pkg/apis/meta/v1alpha1
@@ -168,7 +171,6 @@ imports:
   - pkg/runtime/serializer/versioning
   - pkg/selection
   - pkg/types
-  - pkg/util/cache
   - pkg/util/clock
   - pkg/util/diff
   - pkg/util/errors
@@ -219,20 +221,17 @@ imports:
   - rest
   - rest/watch
   - tools/auth
-  - tools/cache
   - tools/clientcmd
   - tools/clientcmd/api
   - tools/clientcmd/api/latest
   - tools/clientcmd/api/v1
   - tools/metrics
-  - tools/pager
   - tools/reference
   - transport
   - util/cert
   - util/flowcontrol
   - util/homedir
   - util/integer
-  - util/workqueue
 - name: k8s.io/kube-openapi
   version: 868f2f29720b192240e18284659231b440f9cda5
   subpackages:

@@ -10,10 +10,11 @@ import (
 	"github.com/stakater/Jamadaar/pkg/kube"
 )
 
+//NewJamadaarCommand to start and run Jamadaar
 func NewJamadaarCommand() *cobra.Command {
 	cmds := &cobra.Command{
 		Use:   "jamadaar",
-		Short: "A watcher for your Kubernetes cluster",
+		Short: "A kubernetes controller which cleans up left overs",
 		Run:   startJamadaar,
 	}
 	return cmds
@@ -28,22 +29,21 @@ func startJamadaar(cmd *cobra.Command, args []string) {
 	}
 
 	// get the Controller config file
-	config := getControllerConfig()
+	config := getConfiguration()
 
 	controller, err := controller.NewController(clientset, config)
 	if err != nil {
 		log.Printf("Error occured while creating controller. Reason: %s", err.Error())
 	}
-	// Now let's start the controller
+
 	go controller.Run()
 
 	// Wait forever
 	select {}
-
 }
 
 // get the yaml configuration for the controller
-func getControllerConfig() config.Config {
+func getConfiguration() config.Config {
 	configFilePath := os.Getenv("CONFIG_FILE_PATH")
 	if len(configFilePath) == 0 {
 		//Default config file is placed in configs/ folder

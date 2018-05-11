@@ -8,6 +8,14 @@ import (
 
 // Config which would be read from the config.yaml
 type Config struct {
+	TimeInterval string
+	Actions      []Action
+}
+
+// Action that the controller will be taking based on the Parameters
+type Action struct {
+	Name   string
+	Params map[interface{}]interface{}
 }
 
 // ReadConfig function that reads the yaml file

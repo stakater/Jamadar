@@ -1,0 +1,6 @@
+timeinterval: 5s
+actions:
+  - name: slack
+    params:
+      token: <token>
+      channel: <channel-name>
