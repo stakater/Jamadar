@@ -6,6 +6,7 @@ import (
 
 	"github.com/asiyani/slack"
 	"github.com/mitchellh/mapstructure"
+	"k8s.io/api/core/v1"
 )
 
 // Slack action class implementing the Action interface
@@ -28,7 +29,8 @@ func (s *Slack) Init(params map[interface{}]interface{}) error {
 
 // TakeAction the main logic for slack action
 func (s *Slack) TakeAction(obj interface{}) {
-	err := s.SendNotification("message")
+	message := "Namespace " + obj.(v1.Namespace).Name + " Deleted"
+	err := s.SendNotification(message)
 	if err != nil {
 		log.Println("Error:  ", err)
 	}

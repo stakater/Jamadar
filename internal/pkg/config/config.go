@@ -8,8 +8,9 @@ import (
 
 // Config which would be read from the config.yaml
 type Config struct {
-	TimeInterval string
-	Actions      []Action
+	PollTimeInterval string
+	Age              string
+	Actions          []Action
 }
 
 // Action that the controller will be taking based on the Parameters

@@ -1,6 +1,9 @@
-timeinterval: 5s
+polltimeinterval: 20s    # Values: "ms", "s", "m", "h".
+age: 7d                  # Values: "d" or "w" or "m" or "y".
 actions:
+  - name: default
   - name: slack
     params:
       token: <token>
       channel: <channel-name>
+  
