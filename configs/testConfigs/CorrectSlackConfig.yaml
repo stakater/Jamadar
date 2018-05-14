@@ -1,0 +1,9 @@
+polltimeinterval: 20s
+age: 5d
+actions:
+  - name: default
+  - name: slack
+    params:
+      token:  "123"
+      channel: "channelName"
+  

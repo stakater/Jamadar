@@ -9,6 +9,10 @@ import (
 	"k8s.io/api/core/v1"
 )
 
+type SlackService interface {
+	SendNotification(message string) error
+}
+
 // Slack action class implementing the Action interface
 type Slack struct {
 	Token   string
@@ -27,9 +31,9 @@ func (s *Slack) Init(params map[interface{}]interface{}) error {
 	return nil
 }
 
-// TakeAction the main logic for slack action
+// TakeAction handles the main logic for slack action
 func (s *Slack) TakeAction(obj interface{}) {
-	message := "Namespace " + obj.(v1.Namespace).Name + " Deleted"
+	message := "Namespace " + obj.(*v1.Namespace).Name + " Deleted"
 	err := s.SendNotification(message)
 	if err != nil {
 		log.Println("Error:  ", err)
