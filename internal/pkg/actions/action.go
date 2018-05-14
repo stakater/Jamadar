@@ -35,6 +35,6 @@ func (d *Default) Init(params map[interface{}]interface{}) error {
 
 // TakeAction the main business logic of Action
 func (d *Default) TakeAction(obj interface{}) {
-	message := "Namespace " + obj.(v1.Namespace).Name + " Deleted as it was a week old"
+	message := "Default Action  -> Namespace " + obj.(v1.Namespace).Name + " deleted"
 	log.Printf(message)
 }

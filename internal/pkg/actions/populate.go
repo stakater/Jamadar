@@ -10,6 +10,13 @@ import (
 // PopulateFromConfig populates the actions for a specific controller from config
 func PopulateFromConfig(configActions []config.Action) []Action {
 	var populatedActions []Action
+	if len(configActions) == 0 {
+		configActions = []config.Action{
+			config.Action{
+				Name: "default",
+			},
+		}
+	}
 	for _, configAction := range configActions {
 		actionToAdd := MapToAction(configAction.Name)
 		err := actionToAdd.Init(configAction.Params)
