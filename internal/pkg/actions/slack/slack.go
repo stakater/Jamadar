@@ -33,7 +33,7 @@ func (s *Slack) Init(params map[interface{}]interface{}) error {
 
 // TakeAction handles the main logic for slack action
 func (s *Slack) TakeAction(obj interface{}) {
-	message := "Namespace " + obj.(*v1.Namespace).Name + " Deleted"
+	message := "Namespace " + obj.(v1.Namespace).Name + " Deleted"
 	err := s.SendNotification(message)
 	if err != nil {
 		log.Println("Error:  ", err)
