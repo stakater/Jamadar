@@ -1,5 +1,4 @@
 # Jamadaar
-A kubernetes controller which cleans up left overs
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/stakater/jamadaar?style=flat-square)](https://goreportcard.com/report/github.com/stakater/jamadaar)
 [![Go Doc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](http://godoc.org/github.com/stakater/jamadaar)

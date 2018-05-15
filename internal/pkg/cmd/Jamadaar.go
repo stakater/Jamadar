@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"log"
-	"os"
 
 	"github.com/spf13/cobra"
 	"github.com/stakater/Jamadaar/internal/pkg/config"
@@ -29,7 +28,7 @@ func startJamadaar(cmd *cobra.Command, args []string) {
 	}
 
 	// get the Controller config file
-	config := getConfiguration()
+	config := config.GetConfiguration()
 
 	controller, err := controller.NewController(clientset, config)
 	if err != nil {
@@ -40,18 +39,4 @@ func startJamadaar(cmd *cobra.Command, args []string) {
 
 	// Wait forever
 	select {}
-}
-
-// get the yaml configuration for the controller
-func getConfiguration() config.Config {
-	configFilePath := os.Getenv("CONFIG_FILE_PATH")
-	if len(configFilePath) == 0 {
-		//Default config file is placed in configs/ folder
-		configFilePath = "configs/config.yaml"
-	}
-	configuration, err := config.ReadConfig(configFilePath)
-	if err != nil {
-		log.Panic(err)
-	}
-	return configuration
 }

@@ -2,6 +2,8 @@ package config
 
 import (
 	"io/ioutil"
+	"log"
+	"os"
 
 	yaml "gopkg.in/yaml.v2"
 )
@@ -48,4 +50,18 @@ func WriteConfig(config Config, path string) error {
 		return err
 	}
 	return nil
+}
+
+// GetConfiguration gets the yaml configuration for the controller
+func GetConfiguration() Config {
+	configFilePath := os.Getenv("CONFIG_FILE_PATH")
+	if len(configFilePath) == 0 {
+		//Default config file is placed in configs/ folder
+		configFilePath = "configs/config.yaml"
+	}
+	configuration, err := ReadConfig(configFilePath)
+	if err != nil {
+		log.Panic(err)
+	}
+	return configuration
 }

@@ -32,26 +32,3 @@ func TestControllerPass(t *testing.T) {
 	controller, _ := NewController(clientset, configuration)
 	controller.handleTasks()
 }
-func TestControllerErrorInTimeInterval(t *testing.T) {
-	configuration := config.Config{
-		PollTimeInterval: "1q",
-		Age:              "7d",
-		Actions: []config.Action{
-			config.Action{
-				Name: "default",
-			},
-		},
-	}
-	clientset := testclient.NewSimpleClientset()
-	namespace := v1.Namespace{
-		ObjectMeta: metav1.ObjectMeta{
-			Name: "ns-test",
-			Annotations: map[string]string{
-				"jamadaar.stakater.com/persist": "false",
-			},
-		},
-	}
-	clientset.CoreV1().Namespaces().Create(&namespace)
-	controller, _ := NewController(clientset, configuration)
-	controller.handleTasks()
-}

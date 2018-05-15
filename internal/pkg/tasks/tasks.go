@@ -9,21 +9,35 @@ import (
 	clientset "k8s.io/client-go/kubernetes"
 )
 
+type Task struct {
+	clientset clientset.Interface
+	actions   []actions.Action
+	age       string
+}
+
+func NewTask(clientSet clientset.Interface, actions []actions.Action, age string) *Task {
+	return &Task{
+		clientset: clientSet,
+		actions:   actions,
+		age:       age,
+	}
+}
+
 // PerformTasks handles all the cleanup tasks
-func PerformTasks(clientset clientset.Interface, actions []actions.Action, age string) {
-	performNamespaceDeletion(clientset, actions, age)
+func (t *Task) PerformTasks() {
+	t.performNamespaceDeletion()
 }
 
 // performNamespaceDeletion handles the deletion of namespaces
-func performNamespaceDeletion(clientset clientset.Interface, actions []actions.Action, age string) {
+func (t *Task) performNamespaceDeletion() {
 	log.Println("Starting to delete Namespaces")
-	namespaceList, err := clientset.CoreV1().Namespaces().List(metav1.ListOptions{})
+	namespaceList, err := t.clientset.CoreV1().Namespaces().List(metav1.ListOptions{})
 	if err != nil {
 		log.Printf("Error getting namespaces: %v", err)
 		return
 	}
 
-	err = namespaces.DeleteNamespaces(clientset, namespaceList, actions, age)
+	err = namespaces.DeleteNamespaces(t.clientset, namespaceList, t.actions, t.age)
 	if err != nil {
 		log.Printf("Error deleting namespaces: %v", err)
 		return

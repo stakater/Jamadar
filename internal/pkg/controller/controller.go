@@ -31,16 +31,17 @@ func NewController(clientset clientset.Interface, config config.Config) (*Contro
 func (c *Controller) Run() {
 	for {
 		c.handleTasks()
+		timeInterval := c.config.PollTimeInterval
+		duration, err := time.ParseDuration(timeInterval)
+		if err != nil {
+			log.Printf("Error Parsing Time Interval: %v", err)
+			return
+		}
+		time.Sleep(duration)
 	}
 }
 
 func (c *Controller) handleTasks() {
-	tasks.PerformTasks(c.clientset, c.Actions, c.config.Age)
-	timeInterval := c.config.PollTimeInterval
-	duration, err := time.ParseDuration(timeInterval)
-	if err != nil {
-		log.Printf("Error Parsing Time Interval: %v", err)
-		return
-	}
-	time.Sleep(duration)
+	task := tasks.NewTask(c.clientset, c.Actions, c.config.Age)
+	task.PerformTasks()
 }
