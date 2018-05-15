@@ -64,8 +64,11 @@ toolsNode(toolsImage: 'stakater/pipeline-tools:1.5.2') {
                         def dockerImageWithTag = "${dockerImage}:${dockerImageVersion}"
                         slack.sendDefaultSuccessNotification(slackWebHookURL, slackChannel, [slack.createDockerImageField(dockerImageWithTag)])
 
-                        def commentMessage = "Image is available for testing. `docker pull ${dockerImageWithTag}`"
+                        def commentMessage = "Image is available for testing. ``docker pull ${dockerImageWithTag}``"
                         git.addCommentToPullRequest(commentMessage)
+                        sh """
+                            stk notify jira --comment "${commentMessage}"
+                        """
                     }
                 } else if (utils.isCD()) {
                     stage('CD: Tag and Push') {
@@ -75,6 +78,10 @@ toolsNode(toolsImage: 'stakater/pipeline-tools:1.5.2') {
                         dockerImageVersion = version
                         sh """
                             echo "${version}" > ${versionFile}
+                        """
+
+                        sh """
+                            stk notify jira --comment "Version ${version} of ${repoName} has been successfully built and released."
                         """
 
                         // Render chart from templates
@@ -124,7 +131,9 @@ toolsNode(toolsImage: 'stakater/pipeline-tools:1.5.2') {
             
                 def commentMessage = "Yikes! You better fix it before anyone else finds out! [Build ${env.BUILD_NUMBER}](${env.BUILD_URL}) has Failed!"
                 git.addCommentToPullRequest(commentMessage)
-
+                sh """
+                    stk notify jira --comment "${commentMessage}"
+                """
                 throw e
             }
         }
