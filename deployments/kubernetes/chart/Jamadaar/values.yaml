@@ -8,12 +8,12 @@ jamadaar:
   labels:
     provider: stakater
     group: com.stakater.platform
-    version: 0.0.5
+    version: 0.0.1
   image:
     name: stakater/jamadaar
-    tag: "0.0.5"
+    tag: "0.0.1"
     pullPolicy: IfNotPresent
-  polltimeinterval: 20s
+  polltimeinterval: 20m
   age: 7d
   actions:
   - name: slack

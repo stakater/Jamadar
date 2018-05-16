@@ -1,0 +1,25 @@
+---
+# Source: Jamadaar/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    fabric8.io/target-platform: kubernetes
+  labels:
+    app: jamadaar
+    group: com.stakater.platform
+    provider: stakater
+    version: 0.0.1
+    chart: "Jamadaar-0.0.1"
+    release: "RELEASE-NAME"
+    heritage: "Tiller"
+  name: jamadaar
+data:
+  config.yaml: |-
+    polltimeinterval: 20m
+    age: 7d
+    actions:
+      - name: slack
+        params:
+          channel: <channel-name>
+          token: <token>    
