@@ -31,11 +31,12 @@ First of all you need to modify `configs/config.yaml` file. Following are the av
 |-----------------------|-------------------------------------------------------------------------------|
 | polltimeinterval      | The time interval after which the controller will poll and look for dangling resources, The value can be in "ms", "s", "m", "h" or even combined like 2h45m       |
 | age        | The time period that a dangling resource  has been created e.g. delete only resources that are 7 days old, The value can be in "d", "w", "m", "y", Combined format is not supported     |
+| resources               | The resources that you want to be taken care of by Jamadaar, e.g. namespaces, pods, etc   |
 | actions               | The Array of actions that you want to take, e.g. send message to Slack, etc   |
 
 ### Supported Resources
 Currently we are supporting the following dangling resources,
-- Namespaces
+- namespaces
 
 
 We will be adding support for other Resources as well in the future

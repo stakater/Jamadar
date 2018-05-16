@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/stakater/Jamadaar/internal/pkg/actions"
+	"github.com/stakater/Jamadaar/internal/pkg/config"
 	clientset "k8s.io/client-go/kubernetes"
 	testclient "k8s.io/client-go/kubernetes/fake"
 )
@@ -44,6 +45,26 @@ func TestPerformTasksNoNamespaces(t *testing.T) {
 	actions := []actions.Action{
 		&actions.Default{},
 	}
-	task := NewTask(testclient.NewSimpleClientset(), actions, "1y")
+	conf := config.Config{
+		Age: "1y",
+		Resources: []string{
+			"namespaces",
+		},
+	}
+	task := NewTask(testclient.NewSimpleClientset(), actions, conf)
+	task.PerformTasks()
+}
+
+func TestPerformDefault(t *testing.T) {
+	actions := []actions.Action{
+		&actions.Default{},
+	}
+	conf := config.Config{
+		Age: "1y",
+		Resources: []string{
+			"default",
+		},
+	}
+	task := NewTask(testclient.NewSimpleClientset(), actions, conf)
 	task.PerformTasks()
 }

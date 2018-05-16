@@ -42,6 +42,6 @@ func (c *Controller) Run() {
 }
 
 func (c *Controller) handleTasks() {
-	task := tasks.NewTask(c.clientset, c.Actions, c.config.Age)
+	task := tasks.NewTask(c.clientset, c.Actions, c.config)
 	task.PerformTasks()
 }

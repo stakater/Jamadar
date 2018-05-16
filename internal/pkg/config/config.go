@@ -12,6 +12,7 @@ import (
 type Config struct {
 	PollTimeInterval string
 	Age              string
+	Resources        []string
 	Actions          []Action
 }
 
