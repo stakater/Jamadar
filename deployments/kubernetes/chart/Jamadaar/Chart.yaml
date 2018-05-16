@@ -1,0 +1,13 @@
+# Generated from deployments/kubernetes/templates/chart/Chart.yaml.tmpl
+
+apiVersion: v1
+name: Jamadaar
+description: Jamadaar chart that runs on kubernetes
+version: 0.0.5
+keywords:
+  - Jamadaar
+  - kubernetes
+home: https://github.com/stakater/Jamadaar
+maintainers:
+- name: Stakater
+  email: stakater@aurorasolutions.io

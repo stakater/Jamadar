@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    fabric8.io/target-platform: kubernetes
+  labels:
+{{ include "labels.stakater" . | indent 4 }}
+{{ include "labels.chart" . | indent 4 }}
+  name: {{ template "name" . }}
+data:
+  config.yaml: |-
+    polltimeinterval: {{ .Values.jamadaar.polltimeinterval }}
+    age: {{ .Values.jamadaar.age }}
+    actions:
+      {{- range .Values.jamadaar.actions }}
+      - name: {{ .name }}
+        params:
+        {{- range $key, $value := .params }}
+          {{ $key }}: {{ $value }}
+        {{- end }}
+      {{- end }}    

@@ -1,0 +1,11 @@
+polltimeinterval: 1h     # Values: "ms", "s", "m", "h".
+age: 7d                  # Values: "d" or "w" or "m" or "y".
+resources:
+  - namespaces
+actions:
+  - name: default
+  - name: slack
+    params:
+      token: <token>
+      channel: <channel-name>
+  
