@@ -3,7 +3,7 @@
 
 def dummy
 
-toolsNode(toolsImage: 'stakater/pipeline-tools:1.5.2') {
+toolsNode(toolsImage: 'stakater/pipeline-tools:1.6.0') {
     container(name: 'tools') {
         withCurrentRepo(type: 'go') { def repoUrl, def repoName, def repoOwner, def repoBranch ->
             String chartPackageName = ""
