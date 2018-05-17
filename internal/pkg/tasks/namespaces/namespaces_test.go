@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stakater/Jamadaar/internal/pkg/actions"
+	"github.com/stakater/Jamadar/internal/pkg/actions"
 	"k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	clientset "k8s.io/client-go/kubernetes"
@@ -44,7 +44,7 @@ func TestDeleteNamespace(t *testing.T) {
 					ObjectMeta: metav1.ObjectMeta{
 						Name: "ns-test",
 						Annotations: map[string]string{
-							"jamadaar.stakater.com/persist": "false",
+							"jamadar.stakater.com/persist": "false",
 						},
 					},
 				},
@@ -60,7 +60,7 @@ func TestDeleteNamespace(t *testing.T) {
 					ObjectMeta: metav1.ObjectMeta{
 						Name: "ns-test",
 						Annotations: map[string]string{
-							"jamadaar.stakater.com/persist": "false",
+							"jamadar.stakater.com/persist": "false",
 						},
 						CreationTimestamp: metav1.NewTime(time.Now()),
 					},
@@ -77,7 +77,7 @@ func TestDeleteNamespace(t *testing.T) {
 					ObjectMeta: metav1.ObjectMeta{
 						Name: "ns-test",
 						Annotations: map[string]string{
-							"jamadaar.stakater.com/persist": "true",
+							"jamadar.stakater.com/persist": "true",
 						},
 					},
 				},
@@ -105,7 +105,7 @@ func TestDeleteNamespaceWithNoNamespaceCreatedError(t *testing.T) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name: "ns-test",
 			Annotations: map[string]string{
-				"jamadaar.stakater.com/persist": "false",
+				"jamadar.stakater.com/persist": "false",
 			},
 		},
 	}
@@ -139,7 +139,7 @@ func TestDeleteNamespaces(t *testing.T) {
 							ObjectMeta: metav1.ObjectMeta{
 								Name: "ns-test1",
 								Annotations: map[string]string{
-									"jamadaar.stakater.com/persist": "false",
+									"jamadar.stakater.com/persist": "false",
 								},
 								CreationTimestamp: metav1.NewTime(time.Now()),
 							},
@@ -148,7 +148,7 @@ func TestDeleteNamespaces(t *testing.T) {
 							ObjectMeta: metav1.ObjectMeta{
 								Name: "ns-test2",
 								Annotations: map[string]string{
-									"jamadaar.stakater.com/persist": "false",
+									"jamadar.stakater.com/persist": "false",
 								},
 							},
 						},
@@ -178,7 +178,7 @@ func TestDeleteNamespacesWithNoNamespaceCreatedError(t *testing.T) {
 				ObjectMeta: metav1.ObjectMeta{
 					Name: "ns-test1",
 					Annotations: map[string]string{
-						"jamadaar.stakater.com/persist": "false",
+						"jamadar.stakater.com/persist": "false",
 					},
 					CreationTimestamp: metav1.NewTime(time.Now()),
 				},
@@ -188,7 +188,7 @@ func TestDeleteNamespacesWithNoNamespaceCreatedError(t *testing.T) {
 				ObjectMeta: metav1.ObjectMeta{
 					Name: "ns-test2",
 					Annotations: map[string]string{
-						"jamadaar.stakater.com/persist": "false",
+						"jamadar.stakater.com/persist": "false",
 					},
 				},
 			},
@@ -197,7 +197,7 @@ func TestDeleteNamespacesWithNoNamespaceCreatedError(t *testing.T) {
 				ObjectMeta: metav1.ObjectMeta{
 					Name: "ns-test3",
 					Annotations: map[string]string{
-						"jamadaar.stakater.com/persist": "false",
+						"jamadar.stakater.com/persist": "false",
 					},
 				},
 			},

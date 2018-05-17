@@ -6,13 +6,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/stakater/Jamadaar/internal/pkg/actions"
+	"github.com/stakater/Jamadar/internal/pkg/actions"
 	"k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	clientset "k8s.io/client-go/kubernetes"
 )
 
-const jamadaarDisableAnnotation = "jamadaar.stakater.com/persist"
+const jamadarDisableAnnotation = "jamadar.stakater.com/persist"
 
 // DeleteNamespaces deletes the namespaces and takes the actions
 func DeleteNamespaces(clientset clientset.Interface, namespaceList *v1.NamespaceList, actions []actions.Action, age string) error {
@@ -35,7 +35,7 @@ func DeleteNamespaces(clientset clientset.Interface, namespaceList *v1.Namespace
 // DeleteNamespace deletes a single namespace
 func DeleteNamespace(clientset clientset.Interface, namespace v1.Namespace, age string) (bool, error) {
 	annotations := namespace.Annotations
-	value, ok := annotations[jamadaarDisableAnnotation]
+	value, ok := annotations[jamadarDisableAnnotation]
 	// check if annotation is not present and its value is not true
 	if !ok || value != "true" {
 		if checkIfOld(namespace, age) {

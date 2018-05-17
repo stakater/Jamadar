@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/stakater/Jamadaar/internal/pkg/config"
+	"github.com/stakater/Jamadar/internal/pkg/config"
 )
 
 func TestPopulateFromConfig(t *testing.T) {

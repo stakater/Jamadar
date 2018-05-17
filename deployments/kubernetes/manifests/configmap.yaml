@@ -1,19 +1,19 @@
 ---
-# Source: Jamadaar/templates/configmap.yaml
+# Source: Jamadar/templates/configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   annotations:
     fabric8.io/target-platform: kubernetes
   labels:
-    app: jamadaar
+    app: jamadar
     group: com.stakater.platform
     provider: stakater
     version: 0.0.1
-    chart: "Jamadaar-0.0.1"
+    chart: "Jamadar-0.0.1"
     release: "RELEASE-NAME"
     heritage: "Tiller"
-  name: jamadaar
+  name: jamadar
 data:
   config.yaml: |-
     polltimeinterval: 20m

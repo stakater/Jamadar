@@ -3,8 +3,8 @@ package actions
 import (
 	"log"
 
-	"github.com/stakater/Jamadaar/internal/pkg/actions/slack"
-	"github.com/stakater/Jamadaar/internal/pkg/config"
+	"github.com/stakater/Jamadar/internal/pkg/actions/slack"
+	"github.com/stakater/Jamadar/internal/pkg/config"
 )
 
 // PopulateFromConfig populates the actions for a specific controller from config

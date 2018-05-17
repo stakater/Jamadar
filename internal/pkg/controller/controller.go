@@ -4,13 +4,13 @@ import (
 	"log"
 	"time"
 
-	"github.com/stakater/Jamadaar/internal/pkg/actions"
-	"github.com/stakater/Jamadaar/internal/pkg/config"
-	"github.com/stakater/Jamadaar/internal/pkg/tasks"
+	"github.com/stakater/Jamadar/internal/pkg/actions"
+	"github.com/stakater/Jamadar/internal/pkg/config"
+	"github.com/stakater/Jamadar/internal/pkg/tasks"
 	clientset "k8s.io/client-go/kubernetes"
 )
 
-// Controller Jamadaar Controller to check for left over items
+// Controller Jamadar Controller to check for left over items
 type Controller struct {
 	clientset clientset.Interface
 	config    config.Config

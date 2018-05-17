@@ -9,10 +9,10 @@ metadata:
   name: {{ template "name" . }}
 data:
   config.yaml: |-
-    polltimeinterval: {{ .Values.jamadaar.polltimeinterval }}
-    age: {{ .Values.jamadaar.age }}
+    polltimeinterval: {{ .Values.jamadar.polltimeinterval }}
+    age: {{ .Values.jamadar.age }}
     actions:
-      {{- range .Values.jamadaar.actions }}
+      {{- range .Values.jamadar.actions }}
       - name: {{ .name }}
         params:
         {{- range $key, $value := .params }}

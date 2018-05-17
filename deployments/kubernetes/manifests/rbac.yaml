@@ -1,30 +1,30 @@
 ---
-# Source: Jamadaar/templates/rbac.yaml
+# Source: Jamadar/templates/rbac.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   labels:
-    app: jamadaar
+    app: jamadar
     group: com.stakater.platform
     provider: stakater
     version: 0.0.1
-    chart: "Jamadaar-0.0.1"
+    chart: "Jamadar-0.0.1"
     release: "RELEASE-NAME"
     heritage: "Tiller"
-  name: jamadaar
+  name: jamadar
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
 metadata:
   labels: 
-    app: jamadaar
+    app: jamadar
     group: com.stakater.platform
     provider: stakater
     version: 0.0.1
-    chart: "Jamadaar-0.0.1"
+    chart: "Jamadar-0.0.1"
     release: "RELEASE-NAME"
     heritage: "Tiller"
-  name: jamadaar-role
+  name: jamadar-role
 rules:
   - apiGroups:
       - ""
@@ -41,19 +41,19 @@ apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
   labels: 
-    app: jamadaar
+    app: jamadar
     group: com.stakater.platform
     provider: stakater
     version: 0.0.1
-    chart: "Jamadaar-0.0.1"
+    chart: "Jamadar-0.0.1"
     release: "RELEASE-NAME"
     heritage: "Tiller"
-  name: jamadaar-role-binding
+  name: jamadar-role-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: jamadaar-role
+  name: jamadar-role
 subjects:
   - kind: ServiceAccount
-    name: jamadaar
+    name: jamadar
     namespace: default
