@@ -3,8 +3,8 @@ package tasks
 import (
 	"testing"
 
-	"github.com/stakater/Jamadaar/internal/pkg/actions"
-	"github.com/stakater/Jamadaar/internal/pkg/config"
+	"github.com/stakater/Jamadar/internal/pkg/actions"
+	"github.com/stakater/Jamadar/internal/pkg/config"
 	clientset "k8s.io/client-go/kubernetes"
 	testclient "k8s.io/client-go/kubernetes/fake"
 )

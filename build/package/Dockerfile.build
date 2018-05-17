@@ -6,15 +6,15 @@ RUN apk update
 RUN apk -v --update \
     add git build-base && \
     rm -rf /var/cache/apk/* && \
-    mkdir -p "$GOPATH/src/github.com/stakater/Jamadaar"
+    mkdir -p "$GOPATH/src/github.com/stakater/Jamadar"
 
-ADD . "$GOPATH/src/github.com/stakater/Jamadaar"
+ADD . "$GOPATH/src/github.com/stakater/Jamadar"
 
-RUN cd "$GOPATH/src/github.com/stakater/Jamadaar" && \
-    CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a --installsuffix cgo --ldflags="-s" -o /Jamadaar
+RUN cd "$GOPATH/src/github.com/stakater/Jamadar" && \
+    CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a --installsuffix cgo --ldflags="-s" -o /Jamadar
 
 COPY build/package/Dockerfile.run /
 
 # Running this image produces a tarball suitable to be piped into another
 # Docker build command.
-CMD tar -cf - -C / Dockerfile.run Jamadaar
+CMD tar -cf - -C / Dockerfile.run Jamadar

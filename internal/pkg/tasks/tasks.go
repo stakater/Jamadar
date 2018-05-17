@@ -3,14 +3,14 @@ package tasks
 import (
 	"log"
 
-	"github.com/stakater/Jamadaar/internal/pkg/actions"
-	"github.com/stakater/Jamadaar/internal/pkg/config"
-	"github.com/stakater/Jamadaar/internal/pkg/tasks/namespaces"
+	"github.com/stakater/Jamadar/internal/pkg/actions"
+	"github.com/stakater/Jamadar/internal/pkg/config"
+	"github.com/stakater/Jamadar/internal/pkg/tasks/namespaces"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	clientset "k8s.io/client-go/kubernetes"
 )
 
-// Task represents the actual tasks and actions to be taken by Jamadaar
+// Task represents the actual tasks and actions to be taken by Jamadar
 type Task struct {
 	clientset clientset.Interface
 	actions   []actions.Action

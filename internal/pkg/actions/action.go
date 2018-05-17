@@ -3,7 +3,7 @@ package actions
 import (
 	"log"
 
-	"github.com/stakater/Jamadaar/internal/pkg/actions/slack"
+	"github.com/stakater/Jamadar/internal/pkg/actions/slack"
 	"k8s.io/api/core/v1"
 )
 

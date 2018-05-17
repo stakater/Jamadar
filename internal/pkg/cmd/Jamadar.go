@@ -4,23 +4,23 @@ import (
 	"log"
 
 	"github.com/spf13/cobra"
-	"github.com/stakater/Jamadaar/internal/pkg/config"
-	"github.com/stakater/Jamadaar/internal/pkg/controller"
-	"github.com/stakater/Jamadaar/pkg/kube"
+	"github.com/stakater/Jamadar/internal/pkg/config"
+	"github.com/stakater/Jamadar/internal/pkg/controller"
+	"github.com/stakater/Jamadar/pkg/kube"
 )
 
-//NewJamadaarCommand to start and run Jamadaar
-func NewJamadaarCommand() *cobra.Command {
+//NewJamadarCommand to start and run Jamadar
+func NewJamadarCommand() *cobra.Command {
 	cmds := &cobra.Command{
-		Use:   "jamadaar",
+		Use:   "jamadar",
 		Short: "A kubernetes controller which cleans up left overs",
-		Run:   startJamadaar,
+		Run:   startJamadar,
 	}
 	return cmds
 }
 
-func startJamadaar(cmd *cobra.Command, args []string) {
-	log.Println("Starting Jamadaar")
+func startJamadar(cmd *cobra.Command, args []string) {
+	log.Println("Starting Jamadar")
 	// create the clientset
 	clientset, err := kube.GetClient()
 	if err != nil {

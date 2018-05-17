@@ -27,9 +27,9 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
         - name: CONFIG_FILE_PATH
-          value: {{ .Values.jamadaar.configFilePath }}
-        image: "{{ .Values.jamadaar.image.name }}:{{ .Values.jamadaar.image.tag }}"
-        imagePullPolicy: {{ .Values.jamadaar.image.pullPolicy }}
+          value: {{ .Values.jamadar.configFilePath }}
+        image: "{{ .Values.jamadar.image.name }}:{{ .Values.jamadar.image.tag }}"
+        imagePullPolicy: {{ .Values.jamadar.image.pullPolicy }}
         name: {{ template "name" . }}
         volumeMounts:
         - mountPath: /configs

@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/stakater/Jamadaar/cmd/app"
+	"github.com/stakater/Jamadar/cmd/app"
 )
 
 func main() {

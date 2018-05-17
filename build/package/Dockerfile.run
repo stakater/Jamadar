@@ -3,6 +3,6 @@ MAINTAINER "Stakater Team"
 
 RUN apk add --update ca-certificates
 
-COPY Jamadaar /bin/Jamadaar
+COPY Jamadar /bin/Jamadar
 
-ENTRYPOINT ["/bin/Jamadaar"]
+ENTRYPOINT ["/bin/Jamadar"]

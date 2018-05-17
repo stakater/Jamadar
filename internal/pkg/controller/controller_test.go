@@ -3,7 +3,7 @@ package controller
 import (
 	"testing"
 
-	"github.com/stakater/Jamadaar/internal/pkg/config"
+	"github.com/stakater/Jamadar/internal/pkg/config"
 	"k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	testclient "k8s.io/client-go/kubernetes/fake"
@@ -24,7 +24,7 @@ func TestControllerPass(t *testing.T) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name: "ns-test",
 			Annotations: map[string]string{
-				"jamadaar.stakater.com/persist": "false",
+				"jamadar.stakater.com/persist": "false",
 			},
 		},
 	}

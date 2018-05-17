@@ -17,13 +17,13 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 
 {{- define "labels.selector" -}}
 app: {{ template "name" . }}
-group: {{ .Values.jamadaar.labels.group }}
-provider: {{ .Values.jamadaar.labels.provider }}
+group: {{ .Values.jamadar.labels.group }}
+provider: {{ .Values.jamadar.labels.provider }}
 {{- end -}}
 
 {{- define "labels.stakater" -}}
 {{ template "labels.selector" . }}
-version: {{ .Values.jamadaar.labels.version }}
+version: {{ .Values.jamadar.labels.version }}
 {{- end -}}
 
 {{- define "labels.chart" -}}

@@ -4,7 +4,7 @@ import (
 	"log"
 	"testing"
 
-	"github.com/stakater/Jamadaar/internal/pkg/config"
+	"github.com/stakater/Jamadar/internal/pkg/config"
 	"k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )

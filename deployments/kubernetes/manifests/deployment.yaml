@@ -1,33 +1,33 @@
 ---
-# Source: Jamadaar/templates/deployment.yaml
+# Source: Jamadar/templates/deployment.yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   annotations:
-    configmap.fabric8.io/update-on-change: jamadaar
+    configmap.fabric8.io/update-on-change: jamadar
   labels:
-    app: jamadaar
+    app: jamadar
     group: com.stakater.platform
     provider: stakater
     version: 0.0.1
-    chart: "Jamadaar-0.0.1"
+    chart: "Jamadar-0.0.1"
     release: "RELEASE-NAME"
     heritage: "Tiller"
-  name: jamadaar
+  name: jamadar
 spec:
   replicas: 1
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: jamadaar
+      app: jamadar
       group: com.stakater.platform
       provider: stakater
   template:
     metadata:
       annotations:
-        configmap.fabric8.io/update-on-change: jamadaar
+        configmap.fabric8.io/update-on-change: jamadar
       labels:
-        app: jamadaar
+        app: jamadar
         group: com.stakater.platform
         provider: stakater
     spec:
@@ -39,15 +39,15 @@ spec:
               fieldPath: metadata.namespace
         - name: CONFIG_FILE_PATH
           value: /configs/config.yaml
-        image: "stakater/jamadaar:0.0.1"
+        image: "stakater/jamadar:0.0.1"
         imagePullPolicy: IfNotPresent
-        name: jamadaar
+        name: jamadar
         volumeMounts:
         - mountPath: /configs
           name: config-volume
-      serviceAccountName: jamadaar
+      serviceAccountName: jamadar
       volumes:
       - configMap:
-          name: jamadaar
+          name: jamadar
         name: config-volume
               

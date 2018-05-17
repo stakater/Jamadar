@@ -47,7 +47,7 @@ func (s *Slack) SendNotification(message string) error {
 	params.Attachments = []slack.Attachment{prepareMessage(s, message)}
 	params.AsUser = false
 
-	_, _, err := api.PostMessage(s.Channel, "Jamadaar Alert", params)
+	_, _, err := api.PostMessage(s.Channel, "Jamadar Alert", params)
 	if err != nil {
 		return err
 	}
