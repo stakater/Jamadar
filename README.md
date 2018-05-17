@@ -13,7 +13,7 @@
 [![Get started with Stakater](https://stakater.github.io/README/stakater-github-banner.png)](http://stakater.com/?utm_source=Jamadar&utm_medium=github)
 
 
-## WHY NAME JAMADAAR?
+## WHY NAME JAMADAR?
 Jamadar, an Urdu word, is used for Sweepers/Cleaners in Pakistan. This Jamadar will keep your cluster clean and sweep away the left overs of your cluster and will act as you want it to.
 
 ## Problem
