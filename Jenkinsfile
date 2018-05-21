@@ -112,7 +112,6 @@ toolsNode(toolsImage: 'stakater/pipeline-tools:1.6.0') {
                     }
 
                     stage('Chart: Upload') {
-                        def chartRepoUrl = "git@github.com:stakater/charts.git"
                         String cmUsername = common.getEnvValue('CHARTMUSEUM_USERNAME')
                         String cmPassword = common.getEnvValue('CHARTMUSEUM_PASSWORD')
                         chartManager.uploadToChartMuseum(chartDir, repoName, chartPackageName, cmUsername, cmPassword)
