@@ -8,10 +8,10 @@ jamadar:
   labels:
     provider: stakater
     group: com.stakater.platform
-    version: 0.0.3
+    version: 0.0.4
   image:
     name: stakater/jamadar
-    tag: "0.0.3"
+    tag: "0.0.4"
     pullPolicy: IfNotPresent
   polltimeinterval: 20m
   age: 7d

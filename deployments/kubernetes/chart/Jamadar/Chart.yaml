@@ -3,11 +3,11 @@
 apiVersion: v1
 name: Jamadar
 description: Jamadar chart that runs on kubernetes
-version: 0.0.3
+version: 0.0.4
 keywords:
   - Jamadar
   - kubernetes
 home: https://github.com/stakater/Jamadar
 maintainers:
 - name: Stakater
-  email: stakater@aurorasolutions.io
+  email: hello@stakater.com
