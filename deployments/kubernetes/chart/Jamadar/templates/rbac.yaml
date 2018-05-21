@@ -39,4 +39,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: {{ template "name" . }}
-    namespace: {{ .Values.jamadar.namespace }}
+    namespace: .Release.Namespace
