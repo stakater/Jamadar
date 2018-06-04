@@ -85,9 +85,9 @@ toolsNode(toolsImage: 'stakater/pipeline-tools:1.6.0') {
                         """
 
                         // Render chart from templates
-                        templates.renderChart(chartTemplatesDir, chartDir, repoName, version, dockerImage)
+                        templates.renderChart(chartTemplatesDir, chartDir, repoName.toLowerCase(), version, dockerImage)
                         // Generate manifests from chart
-                        templates.generateManifests(chartDir, repoName, manifestsDir)
+                        templates.generateManifests(chartDir, repoName.toLowerCase(), manifestsDir)
 
                         git.commitChanges(WORKSPACE, "Bump Version to ${version}")
 
@@ -107,16 +107,16 @@ toolsNode(toolsImage: 'stakater/pipeline-tools:1.6.0') {
                     }
 
                     stage('Chart: Prepare') {
-                        helm.lint(chartDir, repoName)
-                        chartPackageName = helm.package(chartDir, repoName)
+                        helm.lint(chartDir, repoName.toLowerCase())
+                        chartPackageName = helm.package(chartDir, repoName.toLowerCase())
                     }
 
                     stage('Chart: Upload') {
                         String cmUsername = common.getEnvValue('CHARTMUSEUM_USERNAME')
                         String cmPassword = common.getEnvValue('CHARTMUSEUM_PASSWORD')
-                        chartManager.uploadToChartMuseum(chartDir, repoName, chartPackageName, cmUsername, cmPassword)
+                        chartManager.uploadToChartMuseum(chartDir, repoName.toLowerCase(), chartPackageName, cmUsername, cmPassword)
 
-                        def packagedChartLocation = chartDir + "/" + repoName + "/" + chartPackageName;
+                        def packagedChartLocation = chartDir + "/" + repoName.toLowerCase() + "/" + chartPackageName;
                         chartManager.uploadToStakaterCharts(packagedChartLocation)
                     }
 
