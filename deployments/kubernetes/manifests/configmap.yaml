@@ -1,5 +1,5 @@
 ---
-# Source: Jamadar/templates/configmap.yaml
+# Source: jamadar/templates/configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -7,8 +7,8 @@ metadata:
     app: jamadar
     group: com.stakater.platform
     provider: stakater
-    version: 0.0.5
-    chart: "Jamadar-0.0.5"
+    version: 0.0.6
+    chart: "jamadar-0.0.6"
     release: "RELEASE-NAME"
     heritage: "Tiller"
   name: jamadar

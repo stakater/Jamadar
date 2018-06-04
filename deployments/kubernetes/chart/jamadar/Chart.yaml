@@ -1,9 +1,9 @@
 # Generated from deployments/kubernetes/templates/chart/Chart.yaml.tmpl
 
 apiVersion: v1
-name: Jamadar
+name: jamadar
 description: Jamadar chart that runs on kubernetes
-version: 0.0.5
+version: 0.0.6
 keywords:
   - Jamadar
   - kubernetes
