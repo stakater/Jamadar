@@ -1,4 +1,4 @@
-# Jamadar
+# ![](assets/web/jamadar-round-100px.png) Jamadar
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/stakater/jamadar?style=flat-square)](https://goreportcard.com/report/github.com/stakater/jamadar)
 [![Go Doc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](http://godoc.org/github.com/stakater/jamadar)
