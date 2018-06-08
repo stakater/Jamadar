@@ -2,8 +2,8 @@
 
 .PHONY: default build builder-image binary-image test stop clean-images clean push apply deploy
 
-BUILDER = jamadar-builder
-BINARY = Jamadar
+BUILDER ?= jamadar-builder
+BINARY ?= Jamadar
 DOCKER_IMAGE ?= stakater/jamadar
 # Default value "dev"
 DOCKER_TAG ?= dev
@@ -19,9 +19,9 @@ LDFLAGS =
 
 default: build test
 
-install: 
+install:
 	"$(GLIDECMD)" install
-	cp -r vendor/* ${GOPATH}/src/ 
+	cp -r vendor/* ${GOPATH}/src/
 	rm -rf vendor
 
 build:
