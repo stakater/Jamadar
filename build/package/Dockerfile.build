@@ -11,6 +11,7 @@ RUN apk -v --update \
 ADD . "$GOPATH/src/github.com/stakater/Jamadar"
 
 RUN cd "$GOPATH/src/github.com/stakater/Jamadar" && \
+    glide update && \
     CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a --installsuffix cgo --ldflags="-s" -o /Jamadar
 
 COPY build/package/Dockerfile.run /
