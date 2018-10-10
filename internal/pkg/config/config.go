@@ -10,10 +10,11 @@ import (
 
 // Config which would be read from the config.yaml
 type Config struct {
-	PollTimeInterval string
-	Age              string
-	Resources        []string
-	Actions          []Action
+	PollTimeInterval     string `yaml:"pollTimeInterval"`
+	Age                  string
+	Resources            []string
+	Actions              []Action
+	RestrictedNamespaces []string `yaml:"restrictedNamespaces"`
 }
 
 // Action that the controller will be taking based on the Parameters

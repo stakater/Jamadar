@@ -14,8 +14,7 @@ import (
 type Task struct {
 	clientset clientset.Interface
 	actions   []actions.Action
-	age       string
-	resources []string
+	config    config.Config
 }
 
 // NewTask creates a new Task object
@@ -23,8 +22,7 @@ func NewTask(clientSet clientset.Interface, actions []actions.Action, conf confi
 	return &Task{
 		clientset: clientSet,
 		actions:   actions,
-		age:       conf.Age,
-		resources: conf.Resources,
+		config:    conf,
 	}
 }
 
@@ -34,7 +32,7 @@ func (t *Task) PerformTasks() {
 		"namespaces": t.performNamespaceDeletion,
 		"default":    t.performDefault,
 	}
-	for _, resource := range t.resources {
+	for _, resource := range t.config.Resources {
 		functionMap[resource].(func())()
 	}
 }
@@ -47,8 +45,8 @@ func (t *Task) performNamespaceDeletion() {
 		log.Printf("Error getting namespaces: %v", err)
 		return
 	}
-
-	err = namespaces.DeleteNamespaces(t.clientset, namespaceList, t.actions, t.age)
+	namespace := namespaces.NewNamespaceToDelete(t.clientset, t.actions, t.config)
+	err = namespace.DeleteNamespaces(namespaceList)
 	if err != nil {
 		log.Printf("Error deleting namespaces: %v", err)
 		return

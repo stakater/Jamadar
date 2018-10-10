@@ -1,4 +1,4 @@
-polltimeinterval: 20s
+pollTimeInterval: 20s
 age: 5d
 actions:
   - name: default
@@ -6,4 +6,4 @@ actions:
     params:
       token:  "123"
       channel: "channelName"
-  
+restrictedNamespaces:

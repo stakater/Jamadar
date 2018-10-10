@@ -13,7 +13,7 @@ func TestTask_PerformTasks(t *testing.T) {
 	type fields struct {
 		clientset clientset.Interface
 		actions   []actions.Action
-		age       string
+		conf      config.Config
 	}
 	tests := []struct {
 		name   string
@@ -26,7 +26,12 @@ func TestTask_PerformTasks(t *testing.T) {
 				actions: []actions.Action{
 					&actions.Default{},
 				},
-				age: "1d",
+				conf: config.Config{
+					Age: "1d",
+					Resources: []string{
+						"namespaces",
+					},
+				},
 			},
 		},
 	}
@@ -35,7 +40,7 @@ func TestTask_PerformTasks(t *testing.T) {
 			task := &Task{
 				clientset: tt.fields.clientset,
 				actions:   tt.fields.actions,
-				age:       tt.fields.age,
+				config:    tt.fields.conf,
 			}
 			task.PerformTasks()
 		})
