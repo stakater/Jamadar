@@ -7,7 +7,7 @@ metadata:
   name: {{ template "name" . }}
 data:
   config.yaml: |-
-    polltimeinterval: {{ .Values.jamadar.polltimeinterval }}
+    pollTimeInterval: {{ .Values.jamadar.pollTimeInterval }}
     age: {{ .Values.jamadar.age }}
     actions:
       {{- range .Values.jamadar.actions }}
@@ -17,3 +17,7 @@ data:
           {{ $key }}: {{ $value }}
         {{- end }}
       {{- end }}    
+    restrictedNamespaces:
+    {{- range .Values.jamadar.restrictedNamespaces }}
+      - {{ . }}        
+    {{- end }}
