@@ -7,10 +7,10 @@ jamadar:
   labels:
     provider: stakater
     group: com.stakater.platform
-    version: 0.0.8
+    version: 0.0.9
   image:
     name: stakater/jamadar
-    tag: "0.0.8"
+    tag: "0.0.9"
     pullPolicy: IfNotPresent
   pollTimeInterval: 20m
   age: 7d
@@ -23,4 +23,5 @@ jamadar:
   - kube-system
   - default
   - kube-public
+
   configFilePath: /configs/config.yaml
