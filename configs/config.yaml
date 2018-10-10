@@ -1,5 +1,5 @@
-polltimeinterval: 1h     # Values: "ms", "s", "m", "h".
-age: 7d                  # Values: "d" or "w" or "m" or "y".
+pollTimeInterval: 12h     # Values: "ms", "s", "m", "h".
+age: 1m                  # Values: "d" or "w" or "m" or "y".
 resources:
   - namespaces
 actions:
@@ -8,4 +8,10 @@ actions:
     params:
       token: <token>
       channel: <channel-name>
-  
+restrictedNamespaces: 
+  - kube-system
+  - default
+  - kube-public
+  - dev
+  - prod
+  - tools

@@ -14,10 +14,14 @@ metadata:
   name: jamadar
 data:
   config.yaml: |-
-    polltimeinterval: 20m
+    pollTimeInterval: 20m
     age: 7d
     actions:
       - name: slack
         params:
           channel: <channel-name>
           token: <token>    
+    restrictedNamespaces:
+      - kube-system
+      - default
+      - kube-public
