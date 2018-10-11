@@ -1,0 +1,142 @@
+---
+# Source: jamadar/templates/deployment.yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    configmap.fabric8.io/update-on-change: jamadar
+  labels:
+    app: jamadar
+    group: com.stakater.platform
+    provider: stakater
+    version: 0.0.11
+    chart: "jamadar-0.0.11"
+    release: "RELEASE-NAME"
+    heritage: "Tiller"
+  name: jamadar
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: jamadar
+      group: com.stakater.platform
+      provider: stakater
+  template:
+    metadata:
+      annotations:
+        configmap.fabric8.io/update-on-change: jamadar
+      labels:
+        app: jamadar
+        group: com.stakater.platform
+        provider: stakater
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: CONFIG_FILE_PATH
+          value: /configs/config.yaml
+        image: "stakater/jamadar:0.0.11"
+        imagePullPolicy: IfNotPresent
+        name: jamadar
+        volumeMounts:
+        - mountPath: /configs
+          name: config-volume
+      serviceAccountName: jamadar
+      volumes:
+      - configMap:
+          name: jamadar
+        name: config-volume
+              
+---
+# Source: jamadar/templates/rbac.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: jamadar
+    group: com.stakater.platform
+    provider: stakater
+    version: 0.0.11
+    chart: "jamadar-0.0.11"
+    release: "RELEASE-NAME"
+    heritage: "Tiller"
+  name: jamadar
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  labels: 
+    app: jamadar
+    group: com.stakater.platform
+    provider: stakater
+    version: 0.0.11
+    chart: "jamadar-0.0.11"
+    release: "RELEASE-NAME"
+    heritage: "Tiller"
+  name: jamadar-role
+rules:
+  - apiGroups:
+      - ""
+    resources:      
+      - namespaces
+    verbs:
+      - list
+      - get
+      - watch
+      - create
+      - delete
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  labels: 
+    app: jamadar
+    group: com.stakater.platform
+    provider: stakater
+    version: 0.0.11
+    chart: "jamadar-0.0.11"
+    release: "RELEASE-NAME"
+    heritage: "Tiller"
+  name: jamadar-role-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: jamadar-role
+subjects:
+  - kind: ServiceAccount
+    name: jamadar
+    namespace: .Release.Namespace
+---
+# Source: jamadar/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: jamadar
+    group: com.stakater.platform
+    provider: stakater
+    version: 0.0.11
+    chart: "jamadar-0.0.11"
+    release: "RELEASE-NAME"
+    heritage: "Tiller"
+  name: jamadar
+data:
+  config.yaml: |-
+    pollTimeInterval: 20m
+    age: 7d
+    resources:
+      - namespaces
+    actions:
+      - name: slack
+        params:
+          channel: <channel-name>
+          token: <token>    
+    restrictedNamespaces:
+      - kube-system
+      - default
+      - kube-public
+

@@ -7,8 +7,8 @@ metadata:
     app: jamadar
     group: com.stakater.platform
     provider: stakater
-    version: 0.0.10
-    chart: "jamadar-0.0.10"
+    version: 0.0.11
+    chart: "jamadar-0.0.11"
     release: "RELEASE-NAME"
     heritage: "Tiller"
   name: jamadar
@@ -17,7 +17,7 @@ data:
     pollTimeInterval: 20m
     age: 7d
     resources:
-    - namespaces
+      - namespaces
     actions:
       - name: slack
         params:
