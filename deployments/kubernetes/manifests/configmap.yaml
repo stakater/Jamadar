@@ -16,6 +16,8 @@ data:
   config.yaml: |-
     pollTimeInterval: 20m
     age: 7d
+    resources:
+    - namespaces
     actions:
       - name: slack
         params:
