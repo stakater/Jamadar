@@ -9,6 +9,10 @@ data:
   config.yaml: |-
     pollTimeInterval: {{ .Values.jamadar.pollTimeInterval }}
     age: {{ .Values.jamadar.age }}
+    resources:
+    {{- range .Values.jamadar.resources }}
+      - {{ . }}        
+    {{- end }}
     actions:
       {{- range .Values.jamadar.actions }}
       - name: {{ .name }}

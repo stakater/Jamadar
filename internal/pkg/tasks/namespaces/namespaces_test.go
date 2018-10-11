@@ -28,6 +28,8 @@ func TestNamespaceToDelete_DeleteNamespaces(t *testing.T) {
 		wantErr bool
 	}{
 		{
+			// 1st has a less time so don't delete
+			// 2nd will be deleted
 			name: "DeleteNamespaces",
 			args: args{
 				namespaceList: &v1.NamespaceList{
@@ -72,15 +74,14 @@ func TestNamespaceToDelete_DeleteNamespaces(t *testing.T) {
 								Annotations: map[string]string{
 									"jamadar.stakater.com/persist": "false",
 								},
-								CreationTimestamp: metav1.NewTime(time.Now()),
 							},
 						},
 						v1.Namespace{
 							ObjectMeta: metav1.ObjectMeta{
 								Name: "ns-test2",
-								Annotations: map[string]string{
-									"jamadar.stakater.com/persist": "true",
-								},
+								// Annotations: map[string]string{
+								// 	"jamadar.stakater.com/persist": "false",
+								// },
 							},
 						},
 					},
