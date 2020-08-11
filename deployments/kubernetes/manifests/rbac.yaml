@@ -7,9 +7,9 @@ metadata:
     app: jamadar
     group: com.stakater.platform
     provider: stakater
-    version: v0.0.15
-    chart: "jamadar-v0.0.15"
-    release: "RELEASE-NAME"
+    version: v0.0.16
+    chart: "jamadar-v0.0.16"
+    release: "jamadar"
     heritage: "Tiller"
   name: jamadar
 ---
@@ -20,9 +20,9 @@ metadata:
     app: jamadar
     group: com.stakater.platform
     provider: stakater
-    version: v0.0.15
-    chart: "jamadar-v0.0.15"
-    release: "RELEASE-NAME"
+    version: v0.0.16
+    chart: "jamadar-v0.0.16"
+    release: "jamadar"
     heritage: "Tiller"
   name: jamadar-role
 rules:
@@ -44,9 +44,9 @@ metadata:
     app: jamadar
     group: com.stakater.platform
     provider: stakater
-    version: v0.0.15
-    chart: "jamadar-v0.0.15"
-    release: "RELEASE-NAME"
+    version: v0.0.16
+    chart: "jamadar-v0.0.16"
+    release: "jamadar"
     heritage: "Tiller"
   name: jamadar-role-binding
 roleRef:
