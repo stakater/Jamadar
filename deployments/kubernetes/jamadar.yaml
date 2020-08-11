@@ -7,8 +7,8 @@ metadata:
     app: jamadar
     group: com.stakater.platform
     provider: stakater
-    version: v0.0.16
-    chart: "jamadar-v0.0.16"
+    version: v0.0.17
+    chart: "jamadar-v0.0.17"
     release: "jamadar"
     heritage: "Tiller"
   name: jamadar
@@ -39,8 +39,8 @@ metadata:
     app: jamadar
     group: com.stakater.platform
     provider: stakater
-    version: v0.0.16
-    chart: "jamadar-v0.0.16"
+    version: v0.0.17
+    chart: "jamadar-v0.0.17"
     release: "jamadar"
     heritage: "Tiller"
   name: jamadar
@@ -69,7 +69,7 @@ spec:
               fieldPath: metadata.namespace
         - name: CONFIG_FILE_PATH
           value: /configs/config.yaml
-        image: "stakater/jamadar:v0.0.16"
+        image: "stakater/jamadar:v0.0.17"
         imagePullPolicy: IfNotPresent
         name: jamadar
         volumeMounts:
@@ -90,8 +90,8 @@ metadata:
     app: jamadar
     group: com.stakater.platform
     provider: stakater
-    version: v0.0.16
-    chart: "jamadar-v0.0.16"
+    version: v0.0.17
+    chart: "jamadar-v0.0.17"
     release: "jamadar"
     heritage: "Tiller"
   name: jamadar
@@ -103,8 +103,8 @@ metadata:
     app: jamadar
     group: com.stakater.platform
     provider: stakater
-    version: v0.0.16
-    chart: "jamadar-v0.0.16"
+    version: v0.0.17
+    chart: "jamadar-v0.0.17"
     release: "jamadar"
     heritage: "Tiller"
   name: jamadar-role
@@ -127,8 +127,8 @@ metadata:
     app: jamadar
     group: com.stakater.platform
     provider: stakater
-    version: v0.0.16
-    chart: "jamadar-v0.0.16"
+    version: v0.0.17
+    chart: "jamadar-v0.0.17"
     release: "jamadar"
     heritage: "Tiller"
   name: jamadar-role-binding
