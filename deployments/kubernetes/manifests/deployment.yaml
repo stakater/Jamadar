@@ -9,8 +9,8 @@ metadata:
     app: jamadar
     group: com.stakater.platform
     provider: stakater
-    version: v0.0.17
-    chart: "jamadar-v0.0.17"
+    version: v0.0.18
+    chart: "jamadar-v0.0.18"
     release: "jamadar"
     heritage: "Tiller"
   name: jamadar
@@ -39,7 +39,7 @@ spec:
               fieldPath: metadata.namespace
         - name: CONFIG_FILE_PATH
           value: /configs/config.yaml
-        image: "stakater/jamadar:v0.0.17"
+        image: "stakater/jamadar:v0.0.18"
         imagePullPolicy: IfNotPresent
         name: jamadar
         volumeMounts:
